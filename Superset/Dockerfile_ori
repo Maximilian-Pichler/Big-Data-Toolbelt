@@ -1,0 +1,40 @@
+FROM apache/superset:latest
+#ENV FLASK_APP=superset
+RUN superset fab create-admin \
+               --username admin \
+               --firstname Superset \
+               --lastname Admin \
+               --email admin@superset.com \
+               --password admin
+RUN superset db upgrade
+RUN superset init
+
+
+
+
+
+
+
+
+
+RUN /root/archiconda3/bin/activate superset
+
+RUN root/archiconda3/envs/superset/bin/superset fab create-admin \
+               --username admin \
+               --firstname Superset \
+               --lastname Admin \
+               --email admin@superset.com \
+               --password admin
+RUN root/archiconda3/envs/superset/bin/superset db upgrade
+RUN root/archiconda3/envs/superset/bin/superset init
+
+
+
+
+root/archiconda3/envs/superset/bin/superset fab create-admin \
+               --username admin \
+               --firstname Superset \
+               --lastname Admin \
+               --email admin@superset.com \
+               --password admin \
+               && root/archiconda3/envs/superset/bin/superset db upgrade && root/archiconda3/envs/superset/bin/superset init
