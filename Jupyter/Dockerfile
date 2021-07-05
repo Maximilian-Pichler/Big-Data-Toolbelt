@@ -23,8 +23,9 @@ RUN mkdir ~root/projects
 RUN bash anaconda.sh -b -p /root/anaconda
 RUN /root/anaconda/bin/conda update -y --all
 RUN /root/anaconda/bin/conda create --name development python=3.8 -y
-RUN /root/anaconda/bin/conda install --name development -c conda-forge ipykernel jupyter jupyterlab jupyter-archive pandas matplotlib scikit-learn findspark SQLAlchemy PyMySQL -y
+RUN /root/anaconda/bin/conda install --name development --override-channels -c main -c conda-forge ipykernel jupyter jupyterlab jupyter-archive pandas matplotlib scikit-learn findspark SQLAlchemy PyMySQL requests -y
 RUN /root/anaconda/envs/development/bin/python -m ipykernel install --name=development
+
 
 # install spark
 RUN mkdir ~root/spark
@@ -34,7 +35,7 @@ ENV SPARK_HOME=/root/spark
 
 # set path
 ENV PATH="${PATH}:/root/anaconda/bin:root/spark/bin"
-RUN echo "export PATH="$PATH"" >> ~/.bashrc && . ~/.bashrc
+RUN echo ". /root/anaconda/etc/profile.d/conda.sh" >> ~/.bashrc && . ~/.bashrc
 
 # set entrypoint
 CMD /root/anaconda/envs/development/bin/jupyter lab --ip=0.0.0.0 --ServerApp.token="" --notebook-dir=~root/projects/ --allow-root

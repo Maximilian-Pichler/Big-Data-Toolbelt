@@ -5,6 +5,12 @@
         image: maximilianpichler/bdtb_jupyter:buildx-latest
         volumes:
             - ./Storage:/root/projects/
+        deploy:
+            replicas: 1
+            resources:
+                limits: 
+                cpus: "1"
+                memory: 3G
         ports:
             - 8888:8888
         restart: always

@@ -13,7 +13,6 @@ sudo docker run -d -p 8088:8088 --name superset maximilianpichler/bdtb_superset:
 
 
 ## Jupyter
-sudo docker buildx build --push --platform linux/amd64 --tag maximilianpichler/bdtb_jupyter:buildx-latest .
 sudo docker buildx build --push --platform linux/arm64,linux/amd64 --tag maximilianpichler/bdtb_jupyter:buildx-latest .
 
 sudo docker run -d \
