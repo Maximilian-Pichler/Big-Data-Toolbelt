@@ -1,0 +1,11 @@
+---
+    version: '3'
+    services:
+      jupyter:
+        image: maximilianpichler/bdtb_jupyter:buildx-latest
+        volumes:
+            - ./Storage:/root/projects/
+        ports:
+            - 8888:8888
+        restart: always
+    
