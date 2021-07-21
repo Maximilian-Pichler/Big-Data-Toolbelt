@@ -1,3 +1,0 @@
-FROM maximilianpichler/anaconda:buildx-latest as base
-COPY Assets/mamba.tar.bz2 .
-RUN /root/anaconda/bin/conda install --name base --offline mamba.tar.bz2 && rm mamba.tar.bz2 

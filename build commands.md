@@ -7,22 +7,24 @@ sudo docker buildx build --push --platform linux/arm64/v8 --tag maximilianpichle
 
 # Final
 ## Superset
-sudo docker buildx build --push --platform linux/arm64,linux/amd64 --tag maximilianpichler/bdtb_superset:buildx-latest .
+sudo docker buildx build --push --platform linux/arm64,linux/arm,linux/amd64 --tag maximilianpichler/bdtb_superset:buildx-latest .
 
 sudo docker run -d -p 8088:8088 --name superset maximilianpichler/bdtb_superset:buildx-latest
 
+## Anaconda
+sudo docker buildx build --push --platform linux/arm64,linux/arm,linux/amd64 --tag maximilianpichler/anaconda:buildx-latest .
 
 ## Jupyter
-sudo docker buildx build --push --platform linux/arm64,linux/amd64 --tag maximilianpichler/bdtb_jupyter:buildx-latest .
+sudo docker buildx build --push --platform linux/arm64,linux/arm,linux/amd64 --tag maximilianpichler/bdtb_jupyter:buildx-latest .
 
 sudo docker run -d \
 -p 8888:8888 \
 --name jupyter \
 --mount type=bind,source="$(pwd)"/../Storage,target=/root/projects/ \
-maximilianpichler/bdtb_jupyter:buildx-latest 
+maximilianpichler/bdtb_jupyter:buildx-latest
 
 ## Kafka
-sudo docker buildx build --push --platform linux/arm64,linux/amd64 --tag maximilianpichler/bdtb_kafka:buildx-latest .
+sudo docker buildx build --push --platform linux/arm64,linux/arm,linux/amd64 --tag maximilianpichler/bdtb_kafka:buildx-latest .
 
 sudo docker run -d \
 -p 9092:9092 \

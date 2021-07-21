@@ -4,7 +4,7 @@
       jupyter:
         image: maximilianpichler/bdtb_jupyter:buildx-latest
         volumes:
-            - ./Storage:/root/projects/
+            - ./Storage:~/projects/
         ports:
             - 8888:8888
         restart: always
