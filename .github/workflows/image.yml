@@ -16,7 +16,7 @@ jobs:
         with:
           version: latest
       - name: login
-        run: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+        run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
       - name: change Workdirectory
         run: cd ./Anaconda
       - name: build the image
