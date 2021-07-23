@@ -16,11 +16,11 @@ jobs:
         with:
           version: latest
       - name: login
-      run: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+        run: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - name: change Workdirectory
-      run: cd ./Anaconda
+        run: cd ./Anaconda
       - name: build the image
-      run: |
-        docker buildx build --push \
-        --platform linux/arm64,linux/arm,linux/amd64 \
-        --tag maximilianpichler/anaconda:buildx-latest .
+        run: |
+          docker buildx build --push \
+          --platform linux/arm64,linux/arm,linux/amd64 \
+          --tag maximilianpichler/anaconda:buildx-latest .
