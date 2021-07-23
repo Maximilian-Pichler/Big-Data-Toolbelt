@@ -23,4 +23,4 @@ jobs:
         run: |
           docker buildx build --push \
           --platform linux/arm64,linux/arm,linux/amd64 \
-          --tag maximilianpichler/anaconda:buildx-latest .
+          --tag maximilianpichler/anaconda:buildx-latest . 
